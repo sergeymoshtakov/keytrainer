@@ -1,0 +1,15 @@
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe.config
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\bin\Debug\WpfApp1.exe
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\bin\Debug\WpfApp1.pdb
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\MainWindow.g.cs
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\App.g.cs
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\MainWindow.baml
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.g.resources
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.exe
+Z:\Desktop\Новая папка\WpfApp1\WpfApp1\obj\Debug\WpfApp1.pdb

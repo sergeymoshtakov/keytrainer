@@ -1,0 +1,226 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1000" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            CornerRadius="10"
+                            Margin="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BlueTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#EAF2FF" />
+            <!-- Светло-синий цвет фона -->
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="Speed" Grid.Column="0" Text="Speed: 0 chars/min" IsReadOnly="True"/>
+            <TextBox x:Name="Fails" Grid.Column="1" Text="Fails: 0" IsReadOnly="True"/>
+            <TextBox x:Name="MusterLosung" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="" IsReadOnly="True"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="DifficultyBox" Grid.Row="0" Grid.Column="0" Text="Difficulty: 0" IsReadOnly="True"/>
+                <Slider Grid.Row="0" Grid.Column="1" Minimum="0" Maximum="50" Value="25" ValueChanged="Slider_ValueChanged"/>
+            </Grid>
+            <Button Grid.Column="2" Grid.Row="1" Content ="Start" Margin="5" Click="StartButton_Click"/>
+            <CheckBox Grid.Column="3" Grid.Row="0" Content="Case Sensitive" IsChecked="{Binding IsChecked, Mode=TwoWay}" />
+            <Button Grid.Column="3" Grid.Row="1" Content ="Stop" Margin="5" Click="StopButton_Click"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <TextBox x:Name="Losung" Style="{StaticResource BlueTextBoxStyle}" Text="" IsReadOnly="True"/>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="OemTilde" Grid.Column="0" Style="{StaticResource RoundButtonStyle}" Content ="`" Background="Pink" />
+            <Button x:Name="D1" Grid.Column="1" Style="{StaticResource RoundButtonStyle}" Content ="1" Background="Pink" />
+            <Button x:Name="D2" Grid.Column="2" Style="{StaticResource RoundButtonStyle}" Content ="2" Background="Pink" />
+            <Button x:Name="D3" Grid.Column="3" Style="{StaticResource RoundButtonStyle}" Content ="3" Background="Yellow" />
+            <Button x:Name="D4" Grid.Column="4" Style="{StaticResource RoundButtonStyle}" Content ="4" Background="LightGreen" />
+            <Button x:Name="D5" Grid.Column="5" Style="{StaticResource RoundButtonStyle}" Content ="5" Background="Blue" />
+            <Button x:Name="D6" Grid.Column="6" Style="{StaticResource RoundButtonStyle}" Content ="6" Background="Blue" />
+            <Button x:Name="D7" Grid.Column="7" Style="{StaticResource RoundButtonStyle}" Content ="7" Background="MediumPurple" />
+            <Button x:Name="D8" Grid.Column="8" Style="{StaticResource RoundButtonStyle}" Content ="8" Background="MediumPurple" />
+            <Button x:Name="D9" Grid.Column="9" Style="{StaticResource RoundButtonStyle}" Content ="9" Background="Pink" />
+            <Button x:Name="D0" Grid.Column="10" Style="{StaticResource RoundButtonStyle}" Content ="0" Background="Yellow" />
+            <Button x:Name="OemMinus" Grid.Column="11" Style="{StaticResource RoundButtonStyle}" Content ="-" Background="LightGreen" />
+            <Button x:Name="OemPlus" Grid.Column="12" Style="{StaticResource RoundButtonStyle}" Content ="=" Background="LightGreen" />
+            <Button x:Name="Back" Grid.Column="13" Style="{StaticResource RoundButtonStyle}" Content ="Back Space" />
+        </Grid>
+        
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="Tab" Grid.Column="0" Style="{StaticResource RoundButtonStyle}" Content ="Tab" />
+            <Button x:Name="Q" Grid.Column="1" Style="{StaticResource RoundButtonStyle}" Content ="Q" Background="Pink" />
+            <Button x:Name="W" Grid.Column="2" Style="{StaticResource RoundButtonStyle}" Content ="W" Background="Yellow" />
+            <Button x:Name="E" Grid.Column="3" Style="{StaticResource RoundButtonStyle}" Content ="E" Background="LightGreen" />
+            <Button x:Name="R" Grid.Column="4" Style="{StaticResource RoundButtonStyle}" Content ="R" Background="Blue" />
+            <Button x:Name="T" Grid.Column="5" Style="{StaticResource RoundButtonStyle}" Content ="T" Background="Blue" />
+            <Button x:Name="Y" Grid.Column="6" Style="{StaticResource RoundButtonStyle}" Content ="Y" Background="MediumPurple" />
+            <Button x:Name="U" Grid.Column="7" Style="{StaticResource RoundButtonStyle}" Content ="U" Background="MediumPurple" />
+            <Button x:Name="I" Grid.Column="8" Style="{StaticResource RoundButtonStyle}" Content ="I" Background="Pink" />
+            <Button x:Name="O" Grid.Column="9" Style="{StaticResource RoundButtonStyle}" Content ="O" Background="Yellow" />
+            <Button x:Name="P" Grid.Column="10" Style="{StaticResource RoundButtonStyle}" Content ="P" Background="LightGreen" />
+            <Button x:Name="OemOpenBrackets" Grid.Column="11" Style="{StaticResource RoundButtonStyle}" Content ="[" Background="LightGreen" />
+            <Button x:Name="OemCloseBrackets" Grid.Column="12" Style="{StaticResource RoundButtonStyle}" Content ="]" Background="LightGreen" />
+            <Button x:Name="OemBackslash" Grid.Column="13" Style="{StaticResource RoundButtonStyle}" Content ="\" Background="LightGreen" />
+        </Grid>
+        
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="CapsLock" Grid.Column="0" Style="{StaticResource RoundButtonStyle}" Content ="Caps Lock" />
+            <Button x:Name="A" Grid.Column="1" Style="{StaticResource RoundButtonStyle}" Content ="A" Background="Pink" />
+            <Button x:Name="S" Grid.Column="2" Style="{StaticResource RoundButtonStyle}" Content ="S" Background="Yellow" />
+            <Button x:Name="D" Grid.Column="3" Style="{StaticResource RoundButtonStyle}" Content ="D" Background="LightGreen" />
+            <Button x:Name="F" Grid.Column="4" Style="{StaticResource RoundButtonStyle}" Content ="F" Background="Blue" />
+            <Button x:Name="G" Grid.Column="5" Style="{StaticResource RoundButtonStyle}" Content ="G" Background="Blue" />
+            <Button x:Name="H" Grid.Column="6" Style="{StaticResource RoundButtonStyle}" Content ="H" Background="MediumPurple" />
+            <Button x:Name="J" Grid.Column="7" Style="{StaticResource RoundButtonStyle}" Content ="J" Background="MediumPurple" />
+            <Button x:Name="K" Grid.Column="8" Style="{StaticResource RoundButtonStyle}" Content ="K" Background="Pink" />
+            <Button x:Name="L" Grid.Column="9" Style="{StaticResource RoundButtonStyle}" Content ="L" Background="Yellow" />
+            <Button x:Name="OemSemicolon" Grid.Column="10" Style="{StaticResource RoundButtonStyle}" Content =";" Background="LightGreen" />
+            <Button x:Name="OemQuotes" Grid.Column="11" Style="{StaticResource RoundButtonStyle}" Content ="'" Background="LightGreen" />
+            <Button x:Name="Enter" Grid.Column="12" Style="{StaticResource RoundButtonStyle}" Content ="Enter" />
+        </Grid>
+        
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="LeftShift" Grid.Column="0" Style="{StaticResource RoundButtonStyle}" Content ="Shift" />
+            <Button x:Name="Z" Grid.Column="1" Style="{StaticResource RoundButtonStyle}" Content ="Z" Background="Pink" />
+            <Button x:Name="X" Grid.Column="2" Style="{StaticResource RoundButtonStyle}" Content ="X" Background="Yellow" />
+            <Button x:Name="C" Grid.Column="3" Style="{StaticResource RoundButtonStyle}" Content ="C" Background="LightGreen" />
+            <Button x:Name="V" Grid.Column="4" Style="{StaticResource RoundButtonStyle}" Content ="V" Background="Blue" />
+            <Button x:Name="B" Grid.Column="5" Style="{StaticResource RoundButtonStyle}" Content ="B" Background="Blue" />
+            <Button x:Name="N" Grid.Column="6" Style="{StaticResource RoundButtonStyle}" Content ="N" Background="MediumPurple" />
+            <Button x:Name="M" Grid.Column="7" Style="{StaticResource RoundButtonStyle}" Content ="M" Background="MediumPurple" />
+            <Button x:Name="OemComma" Grid.Column="8" Style="{StaticResource RoundButtonStyle}" Content ="," Background="Pink" />
+            <Button x:Name="OemPeriod" Grid.Column="9" Style="{StaticResource RoundButtonStyle}" Content ="." Background="Yellow" />
+            <Button x:Name="Divide" Grid.Column="10" Style="{StaticResource RoundButtonStyle}" Content ="/" Background="LightGreen" />
+            <Button x:Name="RightShift" Grid.Column="11" Style="{StaticResource RoundButtonStyle}" Content ="Shift" />
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="LeftCtrl" Grid.Column="0" Style="{StaticResource RoundButtonStyle}" Content ="Ctrl" />
+            <Button x:Name="LWin" Grid.Column="1" Style="{StaticResource RoundButtonStyle}" Content ="Win" />
+            <Button x:Name="LeftAlt" Grid.Column="2" Style="{StaticResource RoundButtonStyle}" Content ="Alt" />
+            <Button x:Name="Space" Grid.Column="3" Style="{StaticResource RoundButtonStyle}" Content ="Space" Background="SandyBrown" />
+            <Button x:Name="RightAlt" Grid.Column="4" Style="{StaticResource RoundButtonStyle}" Content ="Alt" />
+            <Button x:Name="RWin" Grid.Column="5" Style="{StaticResource RoundButtonStyle}" Content ="Win" />
+            <Button x:Name="RightCtrl" Grid.Column="6" Style="{StaticResource RoundButtonStyle}" Content ="Ctrl" />
+        </Grid>
+    </Grid>
+</Window>
